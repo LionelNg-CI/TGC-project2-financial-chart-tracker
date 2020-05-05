@@ -1,4 +1,5 @@
 //start with document ready
+var ctx = $("#myChart");
 $(function () {
   let apiURL =
     "https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=SGD&to_symbol=USD&apikey=RV76S9OYG1OF0XEU";
