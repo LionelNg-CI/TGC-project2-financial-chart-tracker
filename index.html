@@ -1,79 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title></title>
-    <!-- Bootstrap -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Financial Portfolio Tracker</title>
+
+    <!-- boostrapCDN -->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--css -->
+    <link href="assets/style.css" rel="stylesheet" />
   </head>
-  <body>
-    <h1>Stocks / Crypto Chart</h1>
-    <div class="m-5">
-      <div class="card col-md-6 offset-md-3">
-        <canvas id="myChart"></canvas>
+
+  <body id="page-top">
+    <!-- Begin Page -->
+    <div class="container-fluid">
+      <!-- Page Heading-->
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h4 mb-0 text-gray-800">Dashboard</h1>
+        <!-- upload data to restdb function keep in view -->
+        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>Upload Trade Histories</a> -->
+      </div>
+
+      <!-- Content 1st Row -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">
+                Total value of all<br />
+                Coins/Tokens:
+              </h6>
+              <p class="card-text">
+                $xx,xx
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total Value in SGD:</h5>
+              <p class="card-text">
+                $xx,xx
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total account Values:</h5>
+              <p class="card-text">
+                $xx,xx
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 2nd Row -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Current btc price</h5>
+              <p class="card-text">
+                $xx,xx (average price)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total Trades:</h5>
+              <p class="card-text">
+                xx
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Current ETH Price</h5>
+              <p class="card-text">
+                $xx,xx
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Row -->
+      <div class="row">
+        <!-- Content Column -->
+        <div class="col-6 mb-4">
+          <!-- Chart display -->
+          <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        </div>
+        <div class="col-6 mb-4">
+          <!-- Chart2 display -->
+          <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        </div>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <script>
-      var ctx = document.getElementById("myChart").getContext("2d");
-      var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: "line",
 
-        // The data for our dataset
-        data: {
-          labels: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-          ],
-          datasets: [
-            {
-              label: "My First dataset",
-              backgroundColor: "rgb(255, 99, 132)",
-              borderColor: "rgb(255, 99, 132)",
-              data: [0, 10, 5, 2, 20, 30, 45],
-            },
-          ],
-        },
-
-        // Configuration options go here
-        options: {
-          title: {
-            text: "Chart Title Section",
-            display: true,
-            position: "bottom",
-          },
-        },
-      });
-    </script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--Bootstrap JavaScripts-->
     <script
-      src="https://code.jquery.com/jquery-1.12.4.min.js"
-      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
       crossorigin="anonymous"
     ></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    <!-- canvasjs chart -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <!--own js scripts-->
+    <script src="assets/scripts/my-script.js"></script>
+    <script src="assets/scripts/canvaschart.js"></script>
   </body>
 </html>
