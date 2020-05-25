@@ -6,20 +6,15 @@
 
     <title>Financial Portfolio Tracker</title>
 
-    <!-- boostrapCDN -->
+    <!-- boostrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
 
-    <!--css -->
+    <!--Own css -->
     <link href="assets/style.css" rel="stylesheet" />
   </head>
 
@@ -38,12 +33,11 @@
         <div class="col-md-4 mb-4">
           <div class="card">
             <div class="card-body">
-              <h6 class="card-title">
-                Total value of all<br />
-                Coins/Tokens:
-              </h6>
-              <p class="card-text">
-                $xx,xx
+              <h5 class="card-title">
+                Total Portfolio values:
+              </h5>
+              <p id="totalValue">
+                $xx,xxx
               </p>
             </div>
           </div>
@@ -51,32 +45,9 @@
         <div class="col-md-4 mb-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Total Value in SGD:</h5>
-              <p class="card-text">
-                $xx,xx
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Total account Values:</h5>
-              <p class="card-text">
-                $xx,xx
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 2nd Row -->
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Current btc price</h5>
-              <p class="card-text">
-                $xx,xx (average price)
+              <h5 class="card-title">Current BTC price:</h5>
+              <p id="price">
+                $xx,xxx
               </p>
             </div>
           </div>
@@ -85,18 +56,8 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Total Trades:</h5>
-              <p class="card-text">
+              <p id="totaltrades">
                 xx
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Current ETH Price</h5>
-              <p class="card-text">
-                $xx,xx
               </p>
             </div>
           </div>
@@ -107,25 +68,27 @@
       <div class="row">
         <!-- Content Column -->
         <div class="col-6 mb-4">
-          <!-- Chart display -->
-          <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+          <!-- Pie Chart display -->
+          <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
         </div>
         <div class="col-6 mb-4">
-          <!-- Chart2 display -->
-          <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+          <!-- Line Chart display -->
+          <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
     </div>
+    <!-- google cdn for jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
     <!--Bootstrap JavaScripts-->
     <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
 
@@ -135,5 +98,7 @@
     <!--own js scripts-->
     <script src="assets/scripts/my-script.js"></script>
     <script src="assets/scripts/canvaschart.js"></script>
+    <script src="assets/scripts/checkprice.js"></script>
+    <script src="assets/scripts/get-db-trade-info.js"></script>
   </body>
 </html>
