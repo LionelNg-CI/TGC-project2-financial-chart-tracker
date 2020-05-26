@@ -5,7 +5,7 @@ var settings = {
   method: "GET",
   headers: {
     "content-type": "application/json",
-    "x-apikey": "5ecc486e4a532801892ed7f3",
+    "x-apikey": "<5ecc486e4a532801892ed7f3>",
     "cache-control": "no-cache",
   },
 };
