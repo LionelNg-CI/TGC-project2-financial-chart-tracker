@@ -6,7 +6,7 @@ I will start with a simple crypto tracker/dashboard for crypto tradings that can
 
 ## UX
 Its is a financial dashboard to show essential information, so i think a minimalist design approach will be good as the main focus point is the data presented.
-color choice will use grey for the background and white on the card components to differentiate the data display area, the display chart will use different color on each coins/tokens to contrast the portfolio assets.
+color choice will use grey for the background and white on the card components to differentiate the data display area, the display chart will use different color on each coins/tokens to contrast bewtween the portfolio assets.
 
 ## UI
 Its a one page dashboard to show user their portfolio data, All data are displayed in a structured card elements & charts display are incorporated to help users better visualize their data, more info will be display when user hover above the pie chart for every coins/tokens.
