@@ -48,9 +48,9 @@ let settingsTrade = {
   },
 };
 $.ajax(settingsTrade).done(function (response) {
-  let tradeCount = response["totals"]["count"];
-  $("#totaltrades").append(tradeCount);
+  $("#totaltrades").append(response["totals"]["count"]);
 });
+
 // get btc balance
 let settingsBtc = {
   async: true,
@@ -65,7 +65,10 @@ let settingsBtc = {
   },
 };
 $.ajax(settingsBtc).done(function (response) {
-  console.log(response);
+  let coinBal = response;
+  console.log(coinBal);
+  // for (let c in "coins");
+
   // let tradeCount = response["totals"]["count"];
   // $("#totaltrades").append(tradeCount);
 });
@@ -73,40 +76,26 @@ $.ajax(settingsBtc).done(function (response) {
 // canvasjs scripts
 window.onload = function () {
   var chart1 = new CanvasJS.Chart("chartContainer1", {
+    theme: "light2",
     title: {
-      text: "values in sgd",
+      text: "Values in SGD",
     },
-
     data: [
       {
-        // Change type to "doughnut", "line", "splineArea", etc.
         type: "pie",
+        showInLegend: true,
+        toolTipContent: "{y} - #percent %",
+        yValueFormatString: "#,##0,,.## Million",
+        legendText: "{indexLabel}",
         dataPoints: [
-          { label: "eth", y: 10 },
-          { label: "btc", y: 15 },
-          { label: "neo", y: 25 },
-          { label: "bnb", y: 30 },
-          { label: "ltc", y: 28 },
+          { y: 4181563, indexLabel: "btc" },
+          { y: 2175498, indexLabel: "eth" },
+          { y: 3125844, indexLabel: "bnb" },
+          { y: 1176121, indexLabel: "ltc" },
+          { y: 1727161, indexLabel: "neo" },
         ],
       },
     ],
   });
-
-  var chart2 = new CanvasJS.Chart("chartContainer2", {
-    ttheme: "light2", // "light1", "light2", "dark1", "dark2"
-    animationEnabled: true,
-    zoomEnabled: true,
-    title: {
-      text: "crypto/coins balance",
-    },
-    data: [
-      {
-        type: "area",
-        dataPoints: [],
-      },
-    ],
-  });
-
   chart1.render();
-  chart2.render();
 };
