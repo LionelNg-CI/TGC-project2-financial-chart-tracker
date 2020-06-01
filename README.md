@@ -22,7 +22,7 @@ Refresh page to see whether the respective data, and charts display correctly
 Testing the responsiveness of the webpage
 ```
 used google developer inspect tools to check webpage layout on different deveices display screen. 
-Those more popular device as follow:
+Those more popular devices are tested as follow:
 * ipad
 * Samsung Galaxy
 * MacBook
