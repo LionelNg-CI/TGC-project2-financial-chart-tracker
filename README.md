@@ -37,7 +37,7 @@ Those more popular devices are tested as follow:
 * restdb.io 
   * To upload trade history & query data to display in webpage 
 * Visual Studio Code
-  *Editor to write the codes for this webpage
+  * Editor to write the codes for this webpage
 
 ## Deployment
 This website is deployed and hosted in github pages, all related repositories eg. html, css, and javascripts are saved in github repositories online, github page allow users to publish its url online
