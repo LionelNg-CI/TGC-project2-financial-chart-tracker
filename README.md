@@ -45,8 +45,8 @@ to access website via internet connection.
 * [Project2](https://lionelng-ci.github.io/TGC-project2-financial-portfolio-tracker/) -github url link to webpage
 
 ## Credits
-alphavantage api
-restdb api
+* alphavantage api
+* restdb api
 
 
 ### Disclaimer:
