@@ -42,7 +42,7 @@ Those more popular devices are tested as follow:
 ## Deployment
 This website is deployed and hosted in github pages, all related repositories eg. html, css, and javascripts are saved in github repositories online, github page allow users to publish its url online
 to access website via internet connection.
-* [Project2](https://lionelng-ci.github.io/TGC-project2-financial-portfolio-tracker/) -github url link to project2 website
+* [Project2](https://lionelng-ci.github.io/TGC-project2-financial-portfolio-tracker/) -github url link to webpage
 
 ## Credits
 alphavantage api
