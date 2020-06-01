@@ -34,7 +34,7 @@ Those more popular devices are tested as follow:
 * Javascript
 * bootstrap 4.4.1
   * utilize its responsive grid system, card and styling of the components
-*restdb.io 
+* restdb.io 
   * To upload trade history & query data to display in webpage 
 * Visual Studio Code
   *Editor to write the codes for this webpage
