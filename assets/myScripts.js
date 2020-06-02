@@ -77,8 +77,7 @@ $.ajax(settingsTrade).done(function (response) {
 // $.ajax(settingsBal).done(function (response) {
 //   // console.log();
 
-
-});
+// });
 
 // canvasjs scripts
 window.onload = function () {
