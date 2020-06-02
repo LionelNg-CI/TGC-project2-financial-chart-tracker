@@ -1,14 +1,31 @@
-//get total portfolio values
+// get unique coin list
+var coinList = [];
+let settingsCoins = {
+  async: true,
+  crossDomain: true,
+  // use database query url to get unique coin listing
+  url:
+    'https://portfolio-63ea.restdb.io/rest/trade-history?q={"$distinct": "quote currency"}',
+  method: "GET",
+  headers: {
+    "content-type": "application/json",
+    "x-apikey": "5ecc486e4a532801892ed7f3",
+    "cache-control": "no-cache",
+  },
+};
+$.ajax(settingsCoins).done(function (response) {
+  coinList.push(response);
+});
 
-// get/fetch btc price
+// get crypto price listing
+var cryptoPList = [];
 let btcPriceDisplay = document.getElementById("price");
-/*
-var requestOptions = {
+let requestOptions = {
   method: "GET",
   redirect: "follow",
 };
 https: fetch(
-  "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=SGD&apikey=ZCD6PLAXN5830VI9",
+  "https://api.coingecko.com/api/v3/simple/price?ids=binancecoin%2Cbitcoin%2Cethereum%2Clitecoin%2Cneo&vs_currencies=sgd",
   requestOptions
 )
   .then(function (response) {
@@ -18,26 +35,19 @@ https: fetch(
     return response.json();
   })
   .then(function (json) {
-    btcprice = json["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
-    btcPriceDisplay.innerHTML =
-      new Intl.NumberFormat("sg-SG", {
-        style: "currency",
-        currency: "SGD",
-      }).format(btcprice) + " per btc";
+    cryptoPList.push(json);
+    btcprice = json.bitcoin.sgd;
+    btcPriceDisplay.innerHTML = new Intl.NumberFormat("sg-SG", {
+      style: "currency",
+      currency: "SGD",
+    }).format(btcprice);
   });
-*/
-// fixedvalue to be remove for btc price
-btcprice = 1234.567;
-btcPriceDisplay.innerHTML =
-  new Intl.NumberFormat("sg-SG", {
-    style: "currency",
-    currency: "SGD",
-  }).format(btcprice) + " <i>per btc</i>";
 
 // get total trades figures
 let settingsTrade = {
   async: true,
   crossDomain: true,
+  // use database query url to get total trade executed
   url:
     "https://portfolio-63ea.restdb.io/rest/trade-history?&totals=true&count=true",
   method: "GET",
@@ -48,37 +58,32 @@ let settingsTrade = {
   },
 };
 $.ajax(settingsTrade).done(function (response) {
-  $("#totaltrades").append(response["totals"]["count"]);
+  let totalCount = response["totals"]["count"];
+  $("#totaltrades").replaceWith(totalCount);
 });
 
-// get btc balance
-let settingsBtc = {
-  async: true,
-  crossDomain: true,
-  url:
-    "https://portfolio-63ea.restdb.io/rest/trade-history?groupby=quote currency",
-  method: "GET",
-  headers: {
-    "content-type": "application/json",
-    "x-apikey": "5ecc486e4a532801892ed7f3",
-    "cache-control": "no-cache",
-  },
-};
-$.ajax(settingsBtc).done(function (response) {
-  let coinBal = response;
-  console.log(coinBal);
-  // for (let c in "coins");
-
-  // let tradeCount = response["totals"]["count"];
-  // $("#totaltrades").append(tradeCount);
-});
+// // get coins balance
+// let settingsBal = {
+//   async: true,
+//   crossDomain: true,
+//   url: "https://portfolio-63ea.restdb.io/rest/trade-history",
+//   method: "GET",
+//   headers: {
+//     "content-type": "application/json",
+//     "x-apikey": "5ecc486e4a532801892ed7f3",
+//     "cache-control": "no-cache",
+//   },
+// };
+// $.ajax(settingsBal).done(function (response) {
+//   // let response.filter("fee");
+// });
 
 // canvasjs scripts
 window.onload = function () {
   var chart1 = new CanvasJS.Chart("chartContainer1", {
     theme: "light2",
     title: {
-      text: "Values in SGD",
+      text: "Coin/Token Values in SGD",
     },
     data: [
       {
