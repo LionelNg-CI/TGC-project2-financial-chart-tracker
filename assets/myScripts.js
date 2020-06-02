@@ -62,21 +62,22 @@ $.ajax(settingsTrade).done(function (response) {
   $("#totaltrades").replaceWith(totalCount);
 });
 
-// get coins balance
-let settingsBal = {
-  async: true,
-  crossDomain: true,
-  url: "https://portfolio-63ea.restdb.io/rest/trade-history",
-  method: "GET",
-  headers: {
-    "content-type": "application/json",
-    "x-apikey": "5ecc486e4a532801892ed7f3",
-    "cache-control": "no-cache",
-  },
-};
-$.ajax(settingsBal).done(function (response) {
-  let bal = response.filter(["fee"]);
-  // console.log();
+// // get coins balance
+// let settingsBal = {
+//   async: true,
+//   crossDomain: true,
+//   url: "https://portfolio-63ea.restdb.io/rest/trade-history",
+//   method: "GET",
+//   headers: {
+//     "content-type": "application/json",
+//     "x-apikey": "5ecc486e4a532801892ed7f3",
+//     "cache-control": "no-cache",
+//   },
+// };
+// $.ajax(settingsBal).done(function (response) {
+//   // console.log();
+
+
 });
 
 // canvasjs scripts
